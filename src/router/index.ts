@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import NotImplementedView from '../views/NotImplementedView.vue'
+import PayslipView from '@/views/PayslipView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,16 +8,53 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: NotImplementedView,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+      path: '/quick-access',
+      name: 'quick_access',
+      component: NotImplementedView,
+    },
+    {
+      path: '/timesheet',
+      name: 'timesheet',
+      component: NotImplementedView,
+    },
+    {
+      path: '/my-information',
+      name: 'my_information',
+      component: NotImplementedView,
+    },
+    {
+      path: '/payslips',
+      name: 'payslips',
+      component: PayslipView,
+    },
+    {
+      path: '/leaves',
+      name: 'leaves',
+      component: NotImplementedView,
+    },
+    {
+      path: '/orgchart',
+      name: 'orgchart',
+      component: NotImplementedView,
+    },
+    {
+      path: '/expense',
+      name: 'expense',
+      component: NotImplementedView,
+    },
+    {
+      path: '/my-team',
+      name: 'my_team',
+      component: NotImplementedView,
+    },
+    {
+      path: '/docs',
+      name: 'docs',
+      component: NotImplementedView,
+    },
   ]
 })
 

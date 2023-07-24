@@ -1,0 +1,82 @@
+[
+  {
+    "ordinal": 1,
+    "icon": "quick_access",
+    "title": "quick_access",
+    "path": "quick-access",
+    "height": "24",
+    "width": "24",
+    "enabled": true
+  },
+  {
+    "ordinal": 4,
+    "icon": "time_entry",
+    "title": "time_entry",
+    "path": "timesheet",
+    "height": "24",
+    "width": "24",
+    "enabled": true
+  },
+  {
+    "ordinal": 2,
+    "icon": "my_information",
+    "title": "my_information",
+    "path": "my-information",
+    "height": "24",
+    "width": "18",
+    "enabled": true
+  },
+  {
+    "ordinal": 3,
+    "icon": "payslips",
+    "title": "payslips",
+    "path": "payslips",
+    "height": "24",
+    "width": "24",
+    "enabled": true
+  },
+  {
+    "ordinal": 5,
+    "icon": "leaves",
+    "title": "leaves",
+    "path": "leaves",
+    "height": "24",
+    "width": "24",
+    "enabled": true
+  },
+  {
+    "ordinal": 7,
+    "icon": "organizational_chart",
+    "title": "organizational_chart",
+    "path": "orgchart",
+    "height": "24",
+    "width": "24",
+    "enabled": true
+  },
+  {
+    "ordinal": 6,
+    "icon": "benefits",
+    "title": "expense",
+    "height": "24",
+    "width": "24",
+    "enabled": true
+  },
+  {
+    "ordinal": 8,
+    "icon": "my_team",
+    "title": "my_team",
+    "path": "my-team",
+    "height": "24",
+    "width": "24",
+    "enabled": true
+  },
+  {
+    "ordinal": 9,
+    "icon": "",
+    "title": "documents",
+    "path": "docs",
+    "height": "24",
+    "width": "24",
+    "enabled": false
+  }
+]
