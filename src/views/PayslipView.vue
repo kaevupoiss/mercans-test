@@ -4,12 +4,8 @@
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<style scoped>
+div {
+  padding: 2rem 5rem;
 }
 </style>

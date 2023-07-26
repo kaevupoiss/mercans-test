@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 
 const props = defineProps({
   name: {
@@ -14,7 +14,13 @@ const props = defineProps({
     type: Number,
     default: 24,
   },
+  rotation: {
+    type: Number,
+    default: 0,
+  }
 });
+
+const deg = computed(() => props.rotation + 'deg');
 
 const icon = defineAsyncComponent(() =>
   import(`@/assets/icons/${props.name}.svg`)
@@ -24,3 +30,11 @@ const icon = defineAsyncComponent(() =>
 <template>
   <component :is="icon" :height="height" :width="width" />
 </template>
+
+<style scoped>
+svg {
+  rotate: v-bind(deg);
+
+  transition: 0.2s ease-out;
+}
+</style>

@@ -10,5 +10,7 @@
 </template>
 
 <style scoped>
-    
+div {
+    padding: 2rem 5rem;
+}
 </style>
