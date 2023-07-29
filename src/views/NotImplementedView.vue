@@ -1,16 +1,14 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <div>
-        <h1>This page is not implemented!</h1>
-        <p>Try something else from the sidemenu!</p>
-    </div>
+  <div>
+    <h1>This page is not implemented!</h1>
+    <p>Try something else from the sidemenu!</p>
+  </div>
 </template>
 
 <style scoped>
 div {
-    padding: 2rem 5rem;
+  padding: 2rem 5rem;
 }
 </style>

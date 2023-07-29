@@ -18,10 +18,15 @@ const tabs = ref(
 // If there are no tabs then fall back to USD
 const selectedTab = ref(tabs.value.keys().next().value ?? 'USD')
 
-// TODO: onSelectedTabChange
+const onTabSelect = (tab: string) => {
+  openPdfIndex.value = undefined
+  selectedTab.value = tab
+}
 
 const filteredPayslips = computed(() =>
-  payslips.filter((payslip) => payslip.payslipEntries[0]?.currency === selectedTab.value)
+  payslips
+    .filter((payslip) => payslip.payslipEntries[0]?.currency === selectedTab.value)
+    .sort((a, b) => new Date(b.payrollDate).getTime() - new Date(a.payrollDate).getTime())
 )
 
 const modalOpen = ref(false)
@@ -47,7 +52,7 @@ const onRowToggle = (index: number) => {
         :class="{ active: tab === selectedTab }"
         v-for="tab in tabs.keys()"
         :key="'tab' + tab"
-        @click="selectedTab = tab"
+        @click="() => onTabSelect(tab)"
       >
         {{ tab }} ({{ tabs.get(tab) }})
       </button>
@@ -100,7 +105,7 @@ const onRowToggle = (index: number) => {
           </button>
           <p>{{ format(new Date(payslip.payrollDate), 'MMMM yyyy') }}</p>
         </div>
-        <div class="table__cell">
+        <div class="table__cell table__cell--file-label">
           <p>{{ payslip.fileAttachment?.file?.label }}</p>
         </div>
         <div class="table__cell">
@@ -164,6 +169,12 @@ h1 {
   padding: 2rem 4.5rem;
 }
 
+@media screen and (max-width: 1280px) {
+  .container {
+    padding: 2rem 2rem;
+  }
+}
+
 .tabs {
   position: relative;
   display: flex;
@@ -224,6 +235,12 @@ h1 {
   --table-columns: 3rem 7rem 1fr 7rem 7rem;
 }
 
+@media screen and (max-width: 1280px) {
+  .table {
+    padding: 2.5rem 1.5rem 5rem 1.5rem;
+  }
+}
+
 .table__header {
   color: var(--dark-gray);
   font-size: 0.75rem;
@@ -248,10 +265,12 @@ h1 {
   grid-template-rows: max-content 800px;
 }
 
-.table__row:not(.table__header):hover {
+.table__row:not(.table__header):hover,
+.table__row.expanded {
   cursor: pointer;
 
   background-color: #fee5db;
+  box-shadow: inset 0 0 0 1px var(--black);
 }
 
 .table__cell {
@@ -269,6 +288,14 @@ h1 {
   color: var(--orange);
 }
 
+.table__cell--file-label p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 button.collapse {
   position: absolute;
 
@@ -282,10 +309,8 @@ button.collapse {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 0;
 
   width: 1.5rem;
-  height: 1.5rem;
 
   border-radius: 999px;
 
@@ -293,17 +318,25 @@ button.collapse {
 
   overflow: visible;
 
-  top: -0.125rem;
-
   transition: all 0.3s ease-out;
 }
 
 button.collapse:hover {
   background-color: var(--black);
+}
+
+.table__row.expanded button.collapse,
+button.collapse:hover {
   height: 2rem;
   row-gap: 0.5rem;
-
   top: -0.375rem;
+}
+
+.table__row.expanded button.collapse:hover,
+button.collapse {
+  height: 1.5rem;
+  row-gap: 0;
+  top: -0.125rem;
 }
 
 button.collapse:hover :deep(svg *) {
@@ -436,7 +469,10 @@ button.collapse:hover :deep(svg *) {
 
 .overlay {
   position: fixed;
-  inset: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 
   z-index: 100;
   background-color: rgba(151, 160, 172, 0.8);

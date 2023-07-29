@@ -8,53 +8,53 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/quick-access',
       name: 'quick_access',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/timesheet',
       name: 'timesheet',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/my-information',
       name: 'my_information',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/payslips',
       name: 'payslips',
-      component: PayslipView,
+      component: PayslipView
     },
     {
       path: '/leaves',
       name: 'leaves',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/orgchart',
       name: 'orgchart',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/expense',
       name: 'expense',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/my-team',
       name: 'my_team',
-      component: NotImplementedView,
+      component: NotImplementedView
     },
     {
       path: '/docs',
       name: 'docs',
-      component: NotImplementedView,
-    },
+      component: NotImplementedView
+    }
   ]
 })
 

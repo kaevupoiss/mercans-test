@@ -74,6 +74,13 @@ const t = (k: string) => {
   grid-template-columns: max-content 1fr;
   grid-template-rows: 1fr;
   width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.content {
+  overflow: auto;
+  scrollbar-gutter: stable;
 }
 
 .sidemenu {
@@ -117,6 +124,7 @@ const t = (k: string) => {
   align-items: center;
   column-gap: 1rem;
   padding: 0.5rem 2.25rem;
+  color: var(--black);
 
   position: relative;
 
